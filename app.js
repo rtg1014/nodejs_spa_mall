@@ -14,10 +14,12 @@ const requestMiddleware = (req, res, next)=>{
     next();
 }
 
+app.use(express.urlencoded());
+app.use(express.static("static"));
 app.use(express.json());
 app.use(requestMiddleware);
 
-app.use("/api", [goodsRouter, ]);
+app.use("/api", [goodsRouter]);
 
 
 app.get("/", (req, res) => {            ///겟이라는 http 메소드로 이 경로로 들어오면 {} 내용르 실행하겟음
